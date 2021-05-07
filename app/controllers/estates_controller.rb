@@ -13,16 +13,18 @@ class EstatesController < ApplicationController
   # GET /estates/new
   def new
     @estate = Estate.new
+    @estate.stations.build
+    @estate.stations.build
   end
 
   # GET /estates/1/edit
   def edit
+    @estate = Estate.find(params[:id])
   end
 
   # POST /estates or /estates.json
   def create
     @estate = Estate.new(estate_params)
-
     respond_to do |format|
       if @estate.save
         format.html { redirect_to @estate, notice: "Estate was successfully created." }
@@ -64,6 +66,20 @@ class EstatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def estate_params
-      params.require(:estate).permit(:name, :rent, :address, :years, :remarks)
+      params.require(
+        :estate
+      ).permit(
+        :name, 
+        :rent, 
+        :address, 
+        :years, 
+        :remarks,
+        stations_attributes: [
+          :route,
+          :estate_id,
+          :id,
+          :_destroy,
+        ],
+      )
     end
 end

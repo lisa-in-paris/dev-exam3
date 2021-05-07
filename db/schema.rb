@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2021_05_07_042435) do
     t.string "route"
     t.string "nearest_station"
     t.string "foot"
+    t.integer "estate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["estate_id"], name: "index_stations_on_estate_id"
   end
 
 end
