@@ -36,6 +36,7 @@ class EstatesController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /estates/1 or /estates/1.json
   def update
