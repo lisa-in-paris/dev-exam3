@@ -25,5 +25,17 @@
   <%= @estate.remarks %>
 </p>
 
+<% @stations.each_with_index do |s,i| %>
+  <% if @estate.stations.any? %>
+    <p>nearest_station<%= i + 1 %></p>
+    <strong>line:</strong>
+    <%= s.route%><br><br>
+    <strong>name of station:</strong>
+    <%= s.nearest_station %><br><br>
+    <strong>foot:</strong>
+    <%= s.foot%>minutes<br><br>
+  <%end%>
+<%end%>
+
 <%= link_to 'Edit', edit_estate_path(@estate) %> |
 <%= link_to 'Back', estates_path %>

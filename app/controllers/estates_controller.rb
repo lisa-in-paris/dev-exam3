@@ -8,7 +8,8 @@ class EstatesController < ApplicationController
 
   # GET /estates/1 or /estates/1.json
   def show
-    
+    # @estate.stations.find_by(estate_id: @estate.id)
+    @stations = @estate.stations
   end
 
   # GET /estates/new
@@ -20,7 +21,7 @@ class EstatesController < ApplicationController
 
   # GET /estates/1/edit
   def edit
-    @estate = Estate.find(params[:id])
+    @estate.stations.build #= Estate.find(params[:id])
   end
 
   # POST /estates or /estates.json
@@ -36,7 +37,7 @@ class EstatesController < ApplicationController
       end
     end
   end
-  
+
 
   # PATCH/PUT /estates/1 or /estates/1.json
   def update
@@ -78,9 +79,10 @@ class EstatesController < ApplicationController
         :remarks,
         stations_attributes: [
           :route,
+          :nearest_station,
+          :foot,
           :estate_id,
           :id,
-          :_destroy,
         ],
       )
     end
