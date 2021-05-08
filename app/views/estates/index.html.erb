@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Estates</h1>
+<h1>Realestate information</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Name of property</th>
       <th>Rent</th>
       <th>Address</th>
-      <th>Years</th>
-      <th>Remarks</th>
+      <th>Age of building</th>
+      <th>Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,9 @@
         <td><%= estate.address %></td>
         <td><%= estate.years %></td>
         <td><%= estate.remarks %></td>
-        <td><%= link_to 'Show', estate %></td>
+        <td><%= link_to 'Details', estate %></td>
         <td><%= link_to 'Edit', edit_estate_path(estate) %></td>
-        <td><%= link_to 'Destroy', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delate', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Estate', new_estate_path %>
+<%= link_to 'Go to Register of property', new_estate_path %>
