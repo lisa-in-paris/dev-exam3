@@ -38,7 +38,7 @@
  
   <%= form.fields_for :stations do |station| %>
     
-    <%= station.index + 1 %>
+    <h3>Nearest Station<%= station.index + 1 %></h3>
     
     
     <div class="field">
@@ -58,6 +58,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :"Submit"%>
   </div>
 <% end %>
