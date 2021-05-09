@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name of property:</strong>
+  <%= @estate.name %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @estate.rent %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @estate.address %>
+</p>
+
+<p>
+  <strong>Age of building:</strong>
+  <%= @estate.years %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @estate.remarks %>
+</p>
+
+<% @stations.each_with_index do |s,i| %>
+  <% if @estate.stations.any? %>
+    <p>nearest_station<%= i + 1 %></p>
+    <strong>line:</strong>
+    <%= s.route%><br><br>
+    <strong>name of station:</strong>
+    <%= s.nearest_station %><br><br>
+    <strong>foot:</strong>
+    <%= s.foot%>minutes<br><br>
+  <%end%>
+<%end%>
+
+<%= link_to 'Edit', edit_estate_path(@estate) %> |
+<%= link_to 'Back', estates_path %>
